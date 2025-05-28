@@ -1,4 +1,4 @@
-# Accident Detection and Severity Analysis System
+# IIUM Accident Detection System
 
 ## 👨‍💻 Team Members
 | Name                                     | Matric No | Role                |
