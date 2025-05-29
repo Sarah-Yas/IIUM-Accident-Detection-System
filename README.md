@@ -4,7 +4,7 @@
 | Name                                     | Matric No | Role                |
 |------------------------------------------|-----------|---------------------|
 | Sarah Yasmin Binti Rodzman               | 2413034   | Project Manager     |
-| Nur Balqis Binti Mohd Kamarulzaman       | (Insert)  | File Handler        |
+| Nur Balqis Binti Mohd Kamarulzaman       | 2410006   | File Handler        |
 | Putri Aimi Batrisyia Binti Muhammad Yusri| 2320206   | Backend Developer   |
 | Nurin Sofina Binti Yusdi                 | 2221372   | GUI Designer        |
 
