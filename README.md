@@ -57,7 +57,7 @@ This JavaFX application simulates an Accident Detection and Severity Analysis Sy
 ## 💡 How to Run
 1. Clone the repo:
 ```bash
-git clone https://github.com/your-username/your-repo-name.git
+git clone https://github.com/Sarah-Yas/IIUM-Accident-Detection-System.git
 ```
 
 2. Open in **IntelliJ IDEA** or **Netbeans** with JavaFX support.
