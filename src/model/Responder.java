@@ -6,9 +6,9 @@ package src.model;
 
 public abstract class Responder {
     // Variables
-    protected String responderID;
-    protected String responderName;
-    protected String contactNumber;
+    public String responderID;
+    public String responderName;
+    public String contactNumber;
     
     // Constructor
     public Responder (String responderID, String responderName, String contactNumber) {
