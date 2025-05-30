@@ -4,41 +4,48 @@
  */
 package src.view;
 
-import javafx.stage.Stage;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.layout.VBox;
-import javafx.geometry.Pos;
-import src.view.UserDashboardUI;
+import javafx.scene.layout.*;
+import javafx.stage.Stage;
 
 public class LoginWindow {
-    private String role;
 
-    public LoginWindow(String role) {
-        this.role = role;
-    }
+    public static void display(Stage stage) {
+        stage.setTitle("Login");
 
-    public void start(Stage stage) {
-        VBox root = new VBox(10);
-        root.setAlignment(Pos.CENTER);
+        Label lblUsername = new Label("Username:");
+        TextField tfUsername = new TextField();
+        Label lblPassword = new Label("Password:");
+        PasswordField pfPassword = new PasswordField();
+        Button btnLogin = new Button("Login");
 
-        TextField usernameField = new TextField();
-        usernameField.setPromptText("Enter User ID");
+        Label lblMessage = new Label();
 
-        PasswordField passwordField = new PasswordField();
-        passwordField.setPromptText("Enter Password");
+        btnLogin.setOnAction(e -> {
+            String username = tfUsername.getText();
+            String password = pfPassword.getText();
 
-        Button loginBtn = new Button("Login");
-        loginBtn.setOnAction(e -> {
-            if (role.equals("user")) {
-                new UserDashboardUI("U123", "KAED Gate").start(stage);
+            // Simple login logic
+            if (username.equals("user") && password.equals("123")) {
+                UserDashboardUI.display(stage);  // For user
+            } else if (username.equals("admin") && password.equals("admin")) {
+                AdminDashboardUI.display(stage);  // For admin
+            } else if (username.equals("responder") && password.equals("111")){
+                ResponderDashboardUI.display(stage); //For responder
+            }else {
+                lblMessage.setText("Invalid username or password.");
             }
         });
 
-        root.getChildren().addAll(new Label("Login as " + role), usernameField, passwordField, loginBtn);
+        VBox layout = new VBox(10);
+        layout.setPadding(new Insets(20));
+        layout.setAlignment(Pos.CENTER);
+        layout.getChildren().addAll(lblUsername, tfUsername, lblPassword, pfPassword, btnLogin, lblMessage);
 
-        Scene scene = new Scene(root, 400, 300);
-        stage.setTitle("Login Window");
+        Scene scene = new Scene(layout, 400, 300);
         stage.setScene(scene);
         stage.show();
     }
