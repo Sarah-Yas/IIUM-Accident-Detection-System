@@ -4,7 +4,7 @@
 | Name                                     | Matric No | Role                |
 |------------------------------------------|-----------|---------------------|
 | Sarah Yasmin Binti Rodzman               | 2413034   | Project Manager     |
-| Nur Balqis Binti Mohd Kamarulzaman       | (Insert)  | File Handler        |
+| Nur Balqis Binti Mohd Kamarulzaman       | 2410006   | File Handler        |
 | Putri Aimi Batrisyia Binti Muhammad Yusri| 2320206   | Backend Developer   |
 | Nurin Sofina Binti Yusdi                 | 2221372   | GUI Designer        |
 
@@ -17,24 +17,39 @@ This JavaFX application simulates an Accident Detection and Severity Analysis Sy
 
 ## 📁 Folder Structure
 ```
-/AccidentDetectionSystem
+/IIUMAccidentDetectionSystem
 │
 ├── /src
-│   ├── MainApp.java
-│   ├── Sensor.java
-│   ├── IotSensor.java
-│   ├── CameraSensor.java
-│   ├── AIEngine.java
-│   ├── AlertDispatcher.java
-│   ├── Responder.java
-│   └── Dashboard.java
+│   ├── /view
+│       ├── AccidentReportUI.java
+│       ├── AdminDashboardUI.java
+│       ├── LoginWindow.java
+│       ├── MainMenu.java
+│       ├── ResponderDasbooardUI.java
+│       ├── StatusUpdateUI.java
+│       ├── UserDashboardUI.java
+│    ├──  /model
+│       ├── AlertDispatcher.java
+│       ├── CallAlert.java
+│       ├── CameraSensor.java
+│       ├── Dashboard.java
+│       ├── IIUMAmbulance.java
+│       ├── IoTSensor.java
+│       ├── MonitorDashboard.java
+│       └── OSEM.java
+│       ├── Responder.java
+│       ├── ResponderDashboard.java
+│       ├── Sensor.java
+│       ├── SMSAlert.java
+│       ├── StatusUpdate.java
+│       ├── UserDashboard.java
 │
-├── /resources
-│   └── images/, styles.css, .fxml files
+│   
+├── MainApp.java
 │
+│  
 ├── accident_data.txt
 ├── README.md
-└── .gitignore
 ```
 
 ---
@@ -45,7 +60,7 @@ This JavaFX application simulates an Accident Detection and Severity Analysis Sy
 git clone https://github.com/your-username/your-repo-name.git
 ```
 
-2. Open in **IntelliJ IDEA** or **Eclipse** with JavaFX support.
+2. Open in **IntelliJ IDEA** or **Netbeans** with JavaFX support.
 3. Ensure you add the correct **JavaFX SDK** to project libraries.
 4. Run `MainApp.java`.
 
@@ -54,7 +69,6 @@ git clone https://github.com/your-username/your-repo-name.git
 ## 🛠 Dependencies
 - Java 17+
 - JavaFX SDK 17+
-- Git (for version control)
 
 ---
 
@@ -66,19 +80,4 @@ git clone https://github.com/your-username/your-repo-name.git
 
 ---
 
-## 📋 .gitignore
-```
-/out/
-*.class
-*.log
-.idea/
-*.iml
-*.DS_Store
-*.fxml
-/build/
-.gradle/
-*.jar
-```
-
----
 
