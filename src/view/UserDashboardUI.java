@@ -4,51 +4,45 @@
  */
 package src.view;
 
-import javafx.application.Application;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import src.model.UserDashboard;
 
-public class UserDashboardUI extends Application {
-    private String userID;
-    private String location;
-
-    public UserDashboardUI() {}
-
-    public UserDashboardUI(String userID, String location) {
-        this.userID = userID;
-        this.location = location;
-    }
-
-    @Override
-    public void start(Stage stage) {
-        UserDashboard user = new UserDashboard("D001", "28-05-2025 10:00 AM", userID, location);
-
-        Label welcomeLabel = new Label("Welcome, User " + user.getDashboardID());
-        Label lastUpdate = new Label(user.refreshDashboard());
-
-        Button viewAccidentBtn = new Button("View Accidents Nearby");
-        viewAccidentBtn.setOnAction(e -> {
-            Label nearbyLabel = new Label(user.displayNearbyAccidents());
-            VBox root = (VBox) stage.getScene().getRoot();
-            root.getChildren().add(nearbyLabel);
-        });
-
-        Button reportBtn = new Button("Report Accident");
-        reportBtn.setOnAction(e -> {
-            Label reportLabel = new Label(user.sendUserReport());
-            VBox root = (VBox) stage.getScene().getRoot();
-            root.getChildren().add(reportLabel);
-        });
-
-        VBox root = new VBox(10);
-        root.getChildren().addAll(welcomeLabel, lastUpdate, viewAccidentBtn, reportBtn);
-
-        Scene scene = new Scene(root, 400, 300);
+public class UserDashboardUI {
+    public static void display(Stage stage) {
         stage.setTitle("User Dashboard");
+
+        Label titleLabel = new Label("Welcome to the User Dashboard");
+        titleLabel.setStyle("-fx-font-size: 24px; -fx-font-weight: bold;");
+
+        TextArea infoArea = new TextArea();
+        infoArea.setEditable(false);
+        infoArea.setWrapText(true);
+        infoArea.setPrefHeight(250);
+        infoArea.setText("- View Today’s Accidents\n- Report New Accident");
+
+        Button btnReportAccident = new Button("Report New Accident");
+        btnReportAccident.setOnAction(e -> AccidentReportUI.display(stage));
+
+        Button btnBack = new Button("Back to Login");
+        btnBack.setOnAction(e -> LoginWindow.display(stage));
+
+        VBox layout = new VBox(15);
+        layout.setAlignment(Pos.CENTER);
+        layout.setPadding(new Insets(20));
+        layout.getChildren().addAll(
+                titleLabel,
+                infoArea,
+                btnReportAccident,
+                btnBack
+        );
+
+        Scene scene = new Scene(layout, 600, 400);
         stage.setScene(scene);
         stage.show();
     }
