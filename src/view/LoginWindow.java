@@ -8,45 +8,79 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.layout.*;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-public class LoginWindow {
+public final class LoginWindow {
+
+    private LoginWindow() {} 
 
     public static void display(Stage stage) {
-        stage.setTitle("Login");
+        stage.setTitle("IIUM Accident Detection System – Login");
 
+        // ── UI controls ──────────────────────────────────────────────
         Label lblUsername = new Label("Username:");
         TextField tfUsername = new TextField();
+        tfUsername.setPromptText("user | admin | responder");
+
         Label lblPassword = new Label("Password:");
         PasswordField pfPassword = new PasswordField();
+        pfPassword.setPromptText("•••••");
+
         Button btnLogin = new Button("Login");
+        btnLogin.setDefaultButton(true);          // Enter key submits
 
-        Label lblMessage = new Label();
+        Label lblMessage = new Label();           // feedback
 
-        btnLogin.setOnAction(e -> {
-            String username = tfUsername.getText();
-            String password = pfPassword.getText();
+        // ── event handling ───────────────────────────────────────────
+        btnLogin.setOnAction(e ->
+                attemptLogin(stage, tfUsername, pfPassword, lblMessage));
 
-            // Simple login logic
-            if (username.equals("user") && password.equals("123")) {
-                UserDashboardUI.display(stage);  // For user
-            } else if (username.equals("admin") && password.equals("admin")) {
-                AdminDashboardUI.display(stage);  // For admin
-            } else if (username.equals("responder") && password.equals("111")){
-                ResponderDashboardUI.display(stage); //For responder
-            }else {
-                lblMessage.setText("Invalid username or password.");
-            }
-        });
-
-        VBox layout = new VBox(10);
+        // ── layout ───────────────────────────────────────────────────
+        VBox layout = new VBox(10,
+                lblUsername, tfUsername,
+                lblPassword, pfPassword,
+                btnLogin,
+                lblMessage);
         layout.setPadding(new Insets(20));
         layout.setAlignment(Pos.CENTER);
-        layout.getChildren().addAll(lblUsername, tfUsername, lblPassword, pfPassword, btnLogin, lblMessage);
 
-        Scene scene = new Scene(layout, 400, 300);
-        stage.setScene(scene);
+        stage.setScene(new Scene(layout, 400, 300));
         stage.show();
     }
-}
+
+    // ─────────────────────────────────────────────────────────────────
+    private static void attemptLogin(Stage stage,
+                                 TextField tfUsername,
+                                 PasswordField pfPassword,
+                                 Label lblMessage) {
+
+    String username = tfUsername.getText().trim();
+    String password = pfPassword.getText().trim();
+
+    if ("user".equalsIgnoreCase(username) && password.equals("123")) {
+        UserDashboardUI.display(stage);
+        return;
+    }
+    
+    if ("admin".equalsIgnoreCase(username) && password.equals("admin")) {
+        AdminDashboardUI.display(stage);
+        return;
+    }
+    
+    if (username.equalsIgnoreCase("osem") && password.equals("123")) {
+    ResponderDashboardUI.display(stage, "OSEM");
+    return;
+    } 
+    
+    if (username.equalsIgnoreCase("ambulance") && password.equals("123")) {
+    ResponderDashboardUI.display(stage, "IIUMAmbulance");
+    return;
+    }
+
+
+    // failed login
+    lblMessage.setText("Invalid username or password.");
+    pfPassword.clear();
+   }
+} 
