@@ -12,7 +12,12 @@ public class IIUMAmbulance extends Responder {
     
     // Constructor
     public IIUMAmbulance(String responderID, String responderName, String contactNumber,
-            String plateNumber, String staffOnDutyID) {
+        String ambulanceID, String plateNumber, String staffOnDutyID) {
+    this(responderID, responderName, contactNumber, ambulanceID, plateNumber);
+}
+
+    // Constructor
+    public IIUMAmbulance(String responderID, String responderName, String contactNumber, String ambulanceID, String plateNumber) {
         super(responderID, responderName, contactNumber);
         this.ambulanceID = ambulanceID;
         this.plateNumber = plateNumber;
