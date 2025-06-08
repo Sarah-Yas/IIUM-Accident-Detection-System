@@ -20,32 +20,34 @@ This JavaFX application simulates an Accident Detection and Severity Analysis Sy
 /IIUMAccidentDetectionSystem
 │
 ├── /src
-│   ├── /view
+│ ├── /alert
+│       ├── AlertDispatcher.java
+│       ├── CallAlert.java
+│       ├── SMSAlert.java
+│ ├── /dashboard
+│       ├── Dashboard.java
+│       ├── MonitorDashboard.java
+│       ├── ResponderDashboard.java
+│       ├── StatusUpdate.java
+│       ├── UserDashboard.java
+│  ├── /main
+│       ├── MainApp.java
+│  ├── /responder
+│       └── OSEM.java
+│       ├── Responder.java
+│       ├── SMSAlert.java
+│  ├── /sensor
+│       ├── CameraSensor.java
+│       ├── IoTSensor.java
+│       ├── Sensor.java
+│  ├── /ui
 │       ├── AccidentReportUI.java
 │       ├── AdminDashboardUI.java
 │       ├── LoginWindow.java
-│       ├── MainMenu.java
 │       ├── ResponderDasbooardUI.java
 │       ├── StatusUpdateUI.java
 │       ├── UserDashboardUI.java
-│    ├──  /model
-│       ├── AlertDispatcher.java
-│       ├── CallAlert.java
-│       ├── CameraSensor.java
-│       ├── Dashboard.java
-│       ├── IIUMAmbulance.java
-│       ├── IoTSensor.java
-│       ├── MonitorDashboard.java
-│       └── OSEM.java
-│       ├── Responder.java
-│       ├── ResponderDashboard.java
-│       ├── Sensor.java
-│       ├── SMSAlert.java
-│       ├── StatusUpdate.java
-│       ├── UserDashboard.java
 │
-│   
-├── MainApp.java
 │
 │  
 ├── accident_data.txt
@@ -62,7 +64,7 @@ git clone https://github.com/Sarah-Yas/IIUM-Accident-Detection-System.git
 
 2. Open in **IntelliJ IDEA** or **Netbeans** with JavaFX support.
 3. Ensure you add the correct **JavaFX SDK** to project libraries.
-4. Run `MainApp.java`.
+4. Run `MainApp.java` inside main folder.
 
 ---
 
