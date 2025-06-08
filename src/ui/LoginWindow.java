@@ -10,7 +10,7 @@ import javafx.stage.Stage;
 
 public class LoginWindow {
     public static void display(Stage stage) {
-        Label titleLabel = new Label("Accident Detection System Login");
+        Label titleLabel = new Label("IIUM Accident Detection System");
         titleLabel.setStyle("-fx-font-size: 18px; -fx-font-weight: bold;");
 
         TextField usernameField = new TextField();
