@@ -50,7 +50,7 @@ This JavaFX application simulates an Accident Detection and Severity Analysis Sy
 │
 │
 │  
-├── accident_data.txt
+├── accidents.txt
 ├── README.md
 ```
 
